@@ -11,5 +11,4 @@ data class Photo(
     val server: String,
     @SerializedName("title")
     val title: String,
-    val url: String = "https://farm66.staticflickr.com/$server/${id}_$secret"
 )

@@ -8,7 +8,8 @@ fun Context.readJsonFromAssets(fileName: String): String {
     return this.assets.open(fileName).bufferedReader().use { it.readText() }
 }
 
-fun <T> parseJsonToModel(jsonString: String): T {
+//я тут добавил inline и reified в жинерик типа Т я добавил reified
+inline fun <reified T> parseJsonToModel(jsonString: String): T {
     val gson = Gson()
     return gson.fromJson(jsonString, object : TypeToken<T>() {}.type)
 }
