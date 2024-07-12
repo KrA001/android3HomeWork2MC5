@@ -55,6 +55,11 @@ dependencies {
     implementation("androidx.fragment:fragment-ktx:1.8.1")
     // gson dependency android
     implementation ("com.google.code.gson:gson:2.11.0")
-    //glide android
+    //glide android Glide
     implementation ("com.github.bumptech.glide:glide:4.16.0")
+
+    //Navigation
+    val nav_version = "2.7.7"
+    implementation("androidx.navigation:navigation-fragment-ktx:$nav_version")
+    implementation("androidx.navigation:navigation-ui-ktx:$nav_version")
 }

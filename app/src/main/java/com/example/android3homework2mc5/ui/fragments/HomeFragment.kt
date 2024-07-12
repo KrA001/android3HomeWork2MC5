@@ -7,8 +7,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.viewModels
+import androidx.navigation.ActivityNavigator
+import androidx.navigation.fragment.findNavController
 import com.example.android3homework2mc5.R
 import com.example.android3homework2mc5.databinding.FragmentHomeBinding
+import com.example.android3homework2mc5.models.Photo
 import com.example.android3homework2mc5.ui.adapters.PhotosAdapter
 
 class HomeFragment : Fragment() {
@@ -17,7 +20,14 @@ class HomeFragment : Fragment() {
     private val binding get() = _binding!!
 
     private val viewModel by viewModels<HomeViewModel>()
-    private var photosAdapter: PhotosAdapter? = PhotosAdapter()
+    private var photosAdapter: PhotosAdapter? = PhotosAdapter(this::click)
+
+    private fun click(photo: Photo) {
+        val bundle = Bundle().apply {
+            putParcelable("selectedPhoto", photo)
+        }
+        findNavController().navigate(R.id.action_homeFragment_to_detailFragment,bundle)
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
