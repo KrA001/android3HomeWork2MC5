@@ -2,6 +2,8 @@ package com.example.android3homework2mc5.ui.activity
 
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
+import androidx.navigation.fragment.NavHostFragment
+import com.example.android3homework2mc5.R
 import com.example.android3homework2mc5.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
@@ -12,5 +14,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        supportFragmentManager.findFragmentById(R.id.nav_host_fragment) as NavHostFragment
     }
 }
